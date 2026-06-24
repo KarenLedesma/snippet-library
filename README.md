@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# 📚 Snippet Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Repositorio personal de fragmentos de código reutilizables, con búsqueda, etiquetas y copia rápida.
 
-Currently, two official plugins are available:
+Proyecto integrador — Módulo de React | Junio 2026
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 👥 Integrantes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Integrante | Desafío | Rama |
+|---|---|---|
+| Karen Ledesma | D1 — Base (scaffold, store, formulario, grilla) | `main` |
+| (Integrante 2) | D2 — Filtros por lenguaje, etiqueta y favoritos | `feature/filtros` |
+| (Integrante 3) | D3 — Copiar snippet al portapapeles | `feature/copiar` |
+| (Integrante 4) | D4 — Búsqueda por palabra clave | `feature/buscador` |
+| (Integrante 5) | D5 — Resaltado de sintaxis | `feature/resaltado` |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tecnologías
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19 + TypeScript + Vite
+- Zustand v5 (estado global + persistencia en localStorage)
+- React Router v7
+- Tailwind CSS v4
+- Lucide React (íconos)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ✨ Funcionalidades
+
+- Cargar snippets con título, lenguaje, descripción, código y etiquetas
+- Marcar snippets como favoritos
+- Eliminar snippets
+- Persistencia automática en localStorage
+- Filtros por lenguaje, etiqueta y favoritos *(D2)*
+- Copiar código al portapapeles *(D3)*
+- Búsqueda por palabra clave *(D4)*
+- Resaltado de sintaxis *(D5)*
+
+---
+
+## 🚀 Cómo correr el proyecto
+
+```bash
+git clone https://github.com/KarenLedesma/snippet-library.git
+cd snippet-library
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Abrí http://localhost:5173 en el navegador.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📁 Estructura del proyecto
+src/
+app/
+router.tsx          # Rutas de la aplicación
+features/
+snippets/
+components/
+SnippetsPage.tsx    # Página principal
+SnippetForm.tsx     # Formulario para cargar snippets
+SnippetList.tsx     # Grilla de snippets
+store.ts            # Store de Zustand con persistencia
+types.ts            # Modelo de datos (Snippet)
+shared/
+components/         # Componentes reutilizables
+main.tsx
+index.css
+
+---
+
+## 🌿 Flujo de trabajo Git
+
+- `main` — base del proyecto (D1)
+- `develop` — rama de integración
+- `feature/filtros` — D2
+- `feature/copiar` — D3
+- `feature/buscador` — D4
+- `feature/resaltado` — D5
+
+Cada integrante crea su rama desde `develop` y hace PR a `develop` al terminar.
+
+---
+
+## 🔗 Links
+
+- **Repositorio:** https://github.com/KarenLedesma/snippet-library
+- **Deploy:** *(próximamente)*
