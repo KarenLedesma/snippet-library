@@ -1,26 +1,32 @@
-// Muestra todos los snippets guardados como tarjetas.
-// Si no hay ninguno, muestra un mensaje vacío.
-// Cada tarjeta tiene estrella para favoritos y papelera para borrar.
-
 import { useSnippetStore } from '../store'
 import { Trash2, Star } from 'lucide-react'
 
 export default function SnippetList() {
   const snippets = useSnippetStore((state) => state.snippets)
+  const searchQuery = useSnippetStore((state) => state.searchQuery)
   const deleteSnippet = useSnippetStore((state) => state.deleteSnippet)
   const toggleFavorite = useSnippetStore((state) => state.toggleFavorite)
 
-  if (snippets.length === 0) {
+  const filtered = snippets.filter((s) => {
+    const q = searchQuery.toLowerCase()
+    return (
+      s.title.toLowerCase().includes(q) ||
+      s.description.toLowerCase().includes(q) ||
+      s.code.toLowerCase().includes(q)
+    )
+  })
+
+  if (filtered.length === 0) {
     return (
       <p className="text-center text-gray-500">
-        No hay snippets todavía. ¡Agregá el primero!
+        {searchQuery ? 'No se encontraron resultados.' : 'No hay snippets todavía. ¡Agregá el primero!'}
       </p>
     )
   }
 
   return (
     <div className="grid grid-cols-1 gap-4">
-      {snippets.map((snippet) => (
+      {filtered.map((snippet) => (
         <div
           key={snippet.id}
           className="bg-gray-900 rounded-xl p-5 flex flex-col gap-3"
