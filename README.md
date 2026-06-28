@@ -54,6 +54,7 @@ Abrí http://localhost:5173 en el navegador.
 
 ---
 
+
 ## 📁 Estructura del proyecto
 ```bash
 src/
