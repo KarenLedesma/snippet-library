@@ -1,3 +1,5 @@
+// Store global con Zustand. Los datos persisten en localStorage automáticamente
+// gracias al middleware persist — no hace falta tocar localStorage a mano.
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { Snippet } from './types'
