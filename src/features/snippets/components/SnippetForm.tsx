@@ -1,3 +1,7 @@
+// Formulario para cargar un snippet nuevo.
+// Título y código son obligatorios — si faltan, no deja guardar.
+// Las etiquetas se ingresan separadas por coma y se convierten a array al guardar.
+
 import { useState } from 'react'
 import { useSnippetStore } from '../store'
 
