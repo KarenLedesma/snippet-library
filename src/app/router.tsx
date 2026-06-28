@@ -1,3 +1,4 @@
+// Si alguien necesita agregar una ruta nueva, es en este archivo.
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import SnippetsPage from '../features/snippets/components/SnippetsPage'
 
