@@ -1,7 +1,6 @@
-// Página principal. Solo organiza el layout — el form arriba, la grilla abajo.
-
 import SnippetForm from './SnippetForm'
 import SnippetList from './SnippetList'
+import SearchBar from './SearchBar'
 
 export default function SnippetsPage() {
   return (
@@ -11,6 +10,7 @@ export default function SnippetsPage() {
       </h1>
       <div className="max-w-4xl mx-auto flex flex-col gap-8">
         <SnippetForm />
+        <SearchBar />
         <SnippetList />
       </div>
     </div>
