@@ -1,3 +1,5 @@
+// La forma de un snippet. Si necesitan agregar un campo nuevo, es acá.
+
 export interface Snippet {
   id: string
   title: string
