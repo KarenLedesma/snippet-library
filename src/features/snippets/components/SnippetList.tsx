@@ -1,3 +1,7 @@
+// Muestra todos los snippets guardados como tarjetas.
+// Si no hay ninguno, muestra un mensaje vacío.
+// Cada tarjeta tiene estrella para favoritos y papelera para borrar.
+
 import { useSnippetStore } from '../store'
 import { Trash2, Star } from 'lucide-react'
 
