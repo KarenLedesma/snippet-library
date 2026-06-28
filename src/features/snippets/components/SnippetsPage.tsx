@@ -1,3 +1,5 @@
+// Página principal. Solo organiza el layout — el form arriba, la grilla abajo.
+
 import SnippetForm from './SnippetForm'
 import SnippetList from './SnippetList'
 
