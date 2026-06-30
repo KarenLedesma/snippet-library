@@ -3,18 +3,26 @@
 // Cada tarjeta tiene estrella para favoritos y papelera para borrar.
 //y botón para copiar el código al portapapeles (D3).
 
-
+import { useState } from 'react'
 import { useSnippetStore } from '../store'
-import { Trash2, Star, Copy} from 'lucide-react'
+import { Trash2, Star, Copy, Check} from 'lucide-react'
 
 export default function SnippetList() {
   const snippets = useSnippetStore((state) => state.snippets)
   const deleteSnippet = useSnippetStore((state) => state.deleteSnippet)
   const toggleFavorite = useSnippetStore((state) => state.toggleFavorite)
 
-  const handleCopy = (code: string) => {
-      navigator.clipboard.writeText(code)
+  const [copiedId, setCopiedId] = useState<string | null>(null)
+
+  const handleCopy = async (id: string, code: string) => {
+    try {
+      await navigator.clipboard.writeText(code)
+      setCopiedId(id)
+      setTimeout(() => setCopiedId(null), 2000)
+    } catch (error) {
+      console.error('Error al copiar:', error)
     }
+  }
 
   if (snippets.length === 0) {
     return (
@@ -45,12 +53,25 @@ export default function SnippetList() {
               >
                 <Star size={18} />
               </button>
+
+              {/* Botón para copiar el código al portapapeles */}
               <button
-                onClick={() => handleCopy(snippet.code)}
-                className="text-gray-400 hover:text-white"
+                onClick={() => handleCopy(snippet.id, snippet.code)}
+                className={`flex items-center gap-1 text-xs px-2 py-1 rounded transition-colors ${
+                  copiedId === snippet.id
+                    ? 'text-green-400'
+                    : 'text-gray-400 hover:text-white'
+                }`}
                 title="Copiar código"
               >
-                <Copy size={16} />
+                {copiedId === snippet.id ? (
+                  <>
+                    <Check size={16} />
+                    <span>¡Copiado!</span>
+                  </>
+                ) : (
+                  <Copy size={16} />
+                )}
               </button>
 
               <button
