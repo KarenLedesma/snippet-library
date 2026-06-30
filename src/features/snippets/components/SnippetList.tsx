@@ -1,14 +1,20 @@
 // Muestra todos los snippets guardados como tarjetas.
 // Si no hay ninguno, muestra un mensaje vacío.
 // Cada tarjeta tiene estrella para favoritos y papelera para borrar.
+//y botón para copiar el código al portapapeles (D3).
+
 
 import { useSnippetStore } from '../store'
-import { Trash2, Star } from 'lucide-react'
+import { Trash2, Star, Copy} from 'lucide-react'
 
 export default function SnippetList() {
   const snippets = useSnippetStore((state) => state.snippets)
   const deleteSnippet = useSnippetStore((state) => state.deleteSnippet)
   const toggleFavorite = useSnippetStore((state) => state.toggleFavorite)
+
+  const handleCopy = (code: string) => {
+      navigator.clipboard.writeText(code)
+    }
 
   if (snippets.length === 0) {
     return (
@@ -39,6 +45,14 @@ export default function SnippetList() {
               >
                 <Star size={18} />
               </button>
+              <button
+                onClick={() => handleCopy(snippet.code)}
+                className="text-gray-400 hover:text-white"
+                title="Copiar código"
+              >
+                <Copy size={16} />
+              </button>
+
               <button
                 onClick={() => deleteSnippet(snippet.id)}
                 className="text-red-500 hover:text-red-400"
