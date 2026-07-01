@@ -13,7 +13,7 @@ Proyecto integrador — Módulo de React | Junio 2026
 | Karen Ledesma | D1 — Base (scaffold, store, formulario, grilla) | `main` |
 | (Integrante 2) | D2 — Filtros por lenguaje, etiqueta y favoritos | `feature/filtros` |
 | (Integrante 3) | D3 — Copiar snippet al portapapeles | `feature/copiar` |
-| (Integrante 4) | D4 — Búsqueda por palabra clave | `feature/buscador` |
+| Karen Ledesma | D4 — Búsqueda por palabra clave | `feature/buscador` |
 | (Integrante 5) | D5 — Resaltado de sintaxis | `feature/resaltado` |
 
 ---
@@ -54,24 +54,26 @@ Abrí http://localhost:5173 en el navegador.
 
 ---
 
-## 📁 Estructura del proyecto
-src/
-app/
-router.tsx          # Rutas de la aplicación
-features/
-snippets/
-components/
-SnippetsPage.tsx    # Página principal
-SnippetForm.tsx     # Formulario para cargar snippets
-SnippetList.tsx     # Grilla de snippets
-store.ts            # Store de Zustand con persistencia
-types.ts            # Modelo de datos (Snippet)
-shared/
-components/         # Componentes reutilizables
-main.tsx
-index.css
 
----
+## 📁 Estructura del proyecto
+```bash
+src/
+  app/
+    router.tsx              # Rutas de la aplicación
+  features/
+    snippets/
+      components/
+        SnippetsPage.tsx    # Página principal
+        SnippetForm.tsx     # Formulario para cargar snippets
+        SnippetList.tsx     # Grilla de snippets
+        SearchBar.tsx       # Buscador por palabra clave
+      store.ts              # Store de Zustand con persistencia
+      types.ts              # Modelo de datos (Snippet)
+  shared/
+    components/             # Componentes reutilizables
+  main.tsx
+  index.css
+```
 
 ## 🌿 Flujo de trabajo Git
 
