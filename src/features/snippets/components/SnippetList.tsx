@@ -41,7 +41,7 @@ export default function SnippetList() {
  return (
     <div className="flex flex-col gap-6">
       
-      {/* BOTONERA INTEGRADA (Estilo unificado) */}
+      {/* BOTONERA INTEGRADA */}
       <div className="p-4 bg-gray-900 border border-gray-800 rounded-xl flex flex-wrap gap-4 items-center">
         <span className="font-semibold text-gray-400 text-sm">Filtrar:</span>
 
