@@ -12,7 +12,7 @@ Proyecto integrador — Módulo de React | Junio 2026
 |---|---|---|
 | Karen Ledesma | D1 — Base (scaffold, store, formulario, grilla) | `main` |
 | (Integrante 2) | D2 — Filtros por lenguaje, etiqueta y favoritos | `feature/filtros` |
-| (Integrante 3) | D3 — Copiar snippet al portapapeles | `feature/copiar` |
+| Nicole Rodriguez | D3 — Copiar snippet al portapapeles | `feature/copiar` |
 | Karen Ledesma | D4 — Búsqueda por palabra clave | `feature/buscador` |
 | (Integrante 5) | D5 — Resaltado de sintaxis | `feature/resaltado` |
 

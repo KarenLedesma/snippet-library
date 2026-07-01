@@ -1,5 +1,6 @@
+import { userState } from 'react' 
 import { useSnippetStore } from '../store'
-import { Trash2, Star } from 'lucide-react'
+import { Trash2, Star, Copy, Check} from 'lucide-react'
 
 export default function SnippetList() {
   const snippets = useSnippetStore((state) => state.snippets)
@@ -7,6 +8,19 @@ export default function SnippetList() {
   const deleteSnippet = useSnippetStore((state) => state.deleteSnippet)
   const toggleFavorite = useSnippetStore((state) => state.toggleFavorite)
 
+  const [copiedId, setCopiedId] = useState<string | null>(null)
+
+  const handleCopy = async (id: string, code: string) => {
+    try {
+      await navigator.clipboard.writeText(code)
+      setCopiedId(id)
+      setTimeout(() => setCopiedId(null), 2000)
+    } catch (error) {
+      console.error('Error al copiar:', error)
+    }
+  }
+
+  if (snippets.length === 0) {
   const filtered = snippets.filter((s) => {
     const q = searchQuery.toLowerCase()
     return (
@@ -45,6 +59,27 @@ export default function SnippetList() {
               >
                 <Star size={18} />
               </button>
+
+              {/* Botón para copiar el código al portapapeles */}
+              <button
+                onClick={() => handleCopy(snippet.id, snippet.code)}
+                className={`flex items-center gap-1 text-xs px-2 py-1 rounded transition-colors ${
+                  copiedId === snippet.id
+                    ? 'text-green-400'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+                title="Copiar código"
+              >
+                {copiedId === snippet.id ? (
+                  <>
+                    <Check size={16} />
+                    <span>¡Copiado!</span>
+                  </>
+                ) : (
+                  <Copy size={16} />
+                )}
+              </button>
+
               <button
                 onClick={() => deleteSnippet(snippet.id)}
                 className="text-red-500 hover:text-red-400"
