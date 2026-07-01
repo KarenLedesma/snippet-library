@@ -1,6 +1,7 @@
-import { userState } from 'react' 
+import { useState } from 'react'
 import { useSnippetStore } from '../store'
-import { Trash2, Star, Copy, Check} from 'lucide-react'
+import { Trash2, Star, Copy, Check } from 'lucide-react'
+import { CodeHighlight } from './CodeHighlight'
 
 export default function SnippetList() {
   const snippets = useSnippetStore((state) => state.snippets)
@@ -20,7 +21,6 @@ export default function SnippetList() {
     }
   }
 
-  if (snippets.length === 0) {
   const filtered = snippets.filter((s) => {
     const q = searchQuery.toLowerCase()
     return (
@@ -43,11 +43,11 @@ export default function SnippetList() {
       {filtered.map((snippet) => (
         <div
           key={snippet.id}
-          className="bg-gray-900 rounded-xl p-5 flex flex-col gap-3"
+          className="bg-neutral-900 border border-neutral-800 rounded-xl p-5 flex flex-col gap-3 shadow-sm hover:shadow-md hover:border-neutral-700 transition-all"
         >
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="text-lg font-semibold">{snippet.title}</h3>
+              <h3 className="text-lg font-semibold text-neutral-100">{snippet.title}</h3>
               <span className="text-xs bg-indigo-700 text-white px-2 py-1 rounded-full">
                 {snippet.language}
               </span>
@@ -93,9 +93,7 @@ export default function SnippetList() {
             <p className="text-gray-400 text-sm">{snippet.description}</p>
           )}
 
-          <pre className="bg-gray-800 rounded-lg p-4 text-sm overflow-x-auto font-mono text-green-300">
-            {snippet.code}
-          </pre>
+          <CodeHighlight code={snippet.code} language={snippet.language} />
 
           {snippet.tags.length > 0 && (
             <div className="flex gap-2 flex-wrap">
