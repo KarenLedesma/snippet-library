@@ -2,19 +2,20 @@
 
 Repositorio personal de fragmentos de código reutilizables, con búsqueda, etiquetas y copia rápida.
 
-Proyecto integrador — Módulo de React | Junio 2026
+Proyecto integrador — Módulo de React | Junio 2026  
+**Idea elegida:** Idea 16 — Biblioteca de Snippets de Código
 
 ---
 
 ## 👥 Integrantes
 
-| Integrante | Desafío | Rama |
+| Integrante        | Desafío                                         | Rama                |
 |---|---|---|
-| Karen Ledesma | D1 — Base (scaffold, store, formulario, grilla) | `main` |
-| (Integrante 2) | D2 — Filtros por lenguaje, etiqueta y favoritos | `feature/filtros` |
-| (Integrante 3) | D3 — Copiar snippet al portapapeles | `feature/copiar` |
-| (Integrante 4) | D4 — Búsqueda por palabra clave | `feature/buscador` |
-| (Integrante 5) | D5 — Resaltado de sintaxis | `feature/resaltado` |
+| Karen Ledesma     | D1 — Base (scaffold, store, formulario, grilla) | `main`              |
+| Ailin Garay       | D2 — Filtros por lenguaje, etiqueta y favoritos | `feature/filtros`   |
+| Nicole Rodriguez  | D3 — Copiar snippet al portapapeles             | `feature/copiar`    |
+| Karen Ledesma     | D4 — Búsqueda por palabra clave                 | `feature/buscador`  |
+| Fiorella Valdivia | D5 — Resaltado de sintaxis                      | `feature/resaltado` |
 
 ---
 
@@ -25,6 +26,7 @@ Proyecto integrador — Módulo de React | Junio 2026
 - React Router v7
 - Tailwind CSS v4
 - Lucide React (íconos)
+- highlight.js (resaltado de sintaxis)
 
 ---
 
@@ -36,8 +38,8 @@ Proyecto integrador — Módulo de React | Junio 2026
 - Persistencia automática en localStorage
 - Filtros por lenguaje, etiqueta y favoritos *(D2)*
 - Copiar código al portapapeles *(D3)*
-- Búsqueda por palabra clave *(D4)*
-- Resaltado de sintaxis *(D5)*
+- Búsqueda por palabra clave en título, descripción y código *(D4)*
+- Resaltado de sintaxis según lenguaje *(D5)*
 
 ---
 
@@ -55,21 +57,29 @@ Abrí http://localhost:5173 en el navegador.
 ---
 
 ## 📁 Estructura del proyecto
+
+```bash
 src/
-app/
-router.tsx          # Rutas de la aplicación
-features/
-snippets/
-components/
-SnippetsPage.tsx    # Página principal
-SnippetForm.tsx     # Formulario para cargar snippets
-SnippetList.tsx     # Grilla de snippets
-store.ts            # Store de Zustand con persistencia
-types.ts            # Modelo de datos (Snippet)
-shared/
-components/         # Componentes reutilizables
-main.tsx
-index.css
+  app/
+    router.tsx                # Rutas de la aplicación
+  features/
+    snippets/
+      components/
+        SnippetsPage.tsx      # Página principal
+        SnippetForm.tsx       # Formulario para cargar snippets
+        SnippetList.tsx       # Grilla de snippets
+        SearchBar.tsx         # Buscador por palabra clave
+        CodeHighlight.tsx     # Resaltado de sintaxis con highlight.js
+      store.ts                # Store de Zustand con persistencia
+      types.ts                # Modelo de datos (Snippet)
+  shared/
+    components/               # Componentes reutilizables
+  main.tsx
+  index.css
+.github/
+  workflows/
+    react-doctor.yml          # Análisis automático de código en cada PR
+```
 
 ---
 
