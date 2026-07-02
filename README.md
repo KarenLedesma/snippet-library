@@ -9,13 +9,13 @@ Proyecto integrador — Módulo de React | Junio 2026
 
 ## 👥 Integrantes
 
-| Integrante        | Desafío                                         | Rama                |
+| Integrante        | Desafío                                         | Rama                          |
 |---|---|---|
-| Karen Ledesma     | D1 — Base (scaffold, store, formulario, grilla) | `main`              |
-| Ailin Garay       | D2 — Filtros por lenguaje, etiqueta y favoritos | `feature/filtros`   |
-| Nicole Rodriguez  | D3 — Copiar snippet al portapapeles             | `feature/copiar`    |
-| Karen Ledesma     | D4 — Búsqueda por palabra clave                 | `feature/buscador`  |
-| Fiorella Valdivia | D5 — Resaltado de sintaxis                      | `feature/resaltado` |
+| Karen Ledesma     | D1 — Base (scaffold, store, formulario, grilla) | `main`                        |
+| Ailin Garay       | D2 — Filtros por lenguaje, etiqueta y favoritos | `feature/D2-filtros`          |
+| Nicole Rodriguez  | D3 — Copiar snippet al portapapeles             | `feature/copiar`              |
+| Karen Ledesma     | D4 — Búsqueda por palabra clave                 | `feature/buscador`            |
+| Fiorella Valdivia | D5 — Resaltado de sintaxis                      | `feature/d5-design-highlight` |
 
 ---
 
@@ -87,10 +87,10 @@ src/
 
 - `main` — base del proyecto (D1)
 - `develop` — rama de integración
-- `feature/filtros` — D2
+- `feature/D2-filtros` — D2
 - `feature/copiar` — D3
 - `feature/buscador` — D4
-- `feature/resaltado` — D5
+- `feature/d5-design-highlight` — D5
 
 Cada integrante crea su rama desde `develop` y hace PR a `develop` al terminar.
 
@@ -99,4 +99,4 @@ Cada integrante crea su rama desde `develop` y hace PR a `develop` al terminar.
 ## 🔗 Links
 
 - **Repositorio:** https://github.com/KarenLedesma/snippet-library
-- **Deploy:** *(próximamente)*
+- **Deploy:** https://snippet-library-drab.vercel.app
