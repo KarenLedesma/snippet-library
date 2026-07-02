@@ -54,6 +54,7 @@ export default function SnippetList() {
             </div>
             <div className="flex gap-2">
               <button
+                type="button"
                 onClick={() => toggleFavorite(snippet.id)}
                 className={snippet.favorite ? 'text-yellow-400' : 'text-gray-600'}
               >
@@ -62,6 +63,7 @@ export default function SnippetList() {
 
               {/* Botón para copiar el código al portapapeles */}
               <button
+                type="button"
                 onClick={() => handleCopy(snippet.id, snippet.code)}
                 className={`flex items-center gap-1 text-xs px-2 py-1 rounded transition-colors ${
                   copiedId === snippet.id
@@ -81,6 +83,7 @@ export default function SnippetList() {
               </button>
 
               <button
+                type="button"
                 onClick={() => deleteSnippet(snippet.id)}
                 className="text-red-500 hover:text-red-400"
               >
